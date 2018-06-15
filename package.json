@@ -1,0 +1,24 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Helps you find compatible friends",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolehouston/friendFinder.git"
+  },
+  "author": "Nicole Houston",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolehouston/friendFinder/issues"
+  },
+  "homepage": "https://github.com/nicolehouston/friendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
