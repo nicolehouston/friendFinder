@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
     integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <title>Friend Finder</title>
@@ -22,129 +23,132 @@
 
             <h3>Question 1</h3>
             <label for="questionOne">You enjoy exploring and trying new things.</label>
-            <select class="form-control" id="question">
-              <option>1 (Strongly Disagree)</option>
+            <select class="form-control" id="1">
+              <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5 (Strongly Agree)</option>
+              <option>5</option>
             </select>
 
             <h3>Question 2</h3>
             <label for="questionTwo">You are a planner, you like to be prepared.</label>
-            <select class="form-control" id="question">
-              <option>1 (Strongly Disagree)</option>
+            <select class="form-control" id="2">
+              <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5 (Strongly Agree)</option>
+              <option>5</option>
             </select>
 
             <h3>Question 3</h3>
             <label for="questionThree">You are quick to trust others.</label>
-            <select class="form-control" id="question">
-              <option>1 (Strongly Disagree)</option>
+            <select class="form-control" id="3">
+              <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5 (Strongly Agree)</option>
+              <option>5</option>
             </select>
 
             <h3>Question 4</h3>
             <label for="questionFour">You prefer staying home over going out.</label>
-            <select class="form-control" id="question">
-              <option>1 (Strongly Disagree)</option>
+            <select class="form-control" id="4">
+              <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5 (Strongly Agree)</option>
+              <option>5</option>
             </select>
 
             <h3>Question 5</h3>
             <label for="questionFive">You like to meet new people.</label>
-            <select class="form-control" id="question">
-              <option>1 (Strongly Disagree)</option>
+            <select class="form-control" id="5">
+              <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5 (Strongly Agree)</option>
+              <option>5</option>
             </select>
 
             <h3>Question 6</h3>
             <label for="questionSix">You prefer to be in the company of those who have similar opinions and values to your own.</label>
-            <select class="form-control" id="question">
-              <option>1 (Strongly Disagree)</option>
+            <select class="form-control" id="6">
+              <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5 (Strongly Agree)</option>
+              <option>5</option>
             </select>
 
             <h3>Question 7</h3>
             <label for="questionSeven">You are flexible when plans change.</label>
-            <select class="form-control" id="question">
-              <option>1 (Strongly Disagree)</option>
+            <select class="form-control" id="7">
+              <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5 (Strongly Agree)</option>
+              <option>5</option>
             </select>
 
             <h3>Question 8</h3>
             <label for="questionSeven">You are the life of the party.</label>
-            <select class="form-control" id="question">
-              <option>1 (Strongly Disagree)</option>
+            <select class="form-control" id="8">
+              <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5 (Strongly Agree)</option>
+              <option>5</option>
             </select>
 
             <h3>Question 9</h3>
             <label for="questionSeven">You are more comfortable haning out with one or two people over a large group of people.</label>
-            <select class="form-control" id="question">
-              <option>1 (Strongly Disagree)</option>
+            <select class="form-control" id="9">
+              <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5 (Strongly Agree)</option>
+              <option>5</option>
             </select>
 
             <h3>Question 10</h3>
             <label for="questionSeven">It doesn't take much to make you happy, you enjoy the simple things of life.</label>
-            <select class="form-control" id="question">
-              <option>1 (Strongly Disagree)</option>
+            <select class="form-control" id="10">
+              <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5 (Strongly Agree)</option>
+              <option>5</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
     </form>
 
 
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
-integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script>
+<script type="text/javascript">
   $("#submit").on("click", function(event){
     event.preventDefault();
-
-    var scoreArray = [];
-    scoreArray.push($(".question").val().trim());
 
     var newFriend = {
       name: $("#name").val().trim(),
       picture: $("#picture").val().trim(),
-      scores: scoreArray
-    }
+      scores: [$("#1").val(),
+              $("#2").val(),
+              $("#3").val(),
+              $("#4").val(),
+              $("#5").val(),
+              $("#6").val(),
+              $("#7").val(),
+              $("#8").val(),
+              $("#9").val(),
+              $("#10").val()
+            ]
+    };
 
     console.log(newFriend);
 
     $.post("/api/friends", newFriend, function(data){
-      
+      console.log(data);
     })
   });
 
