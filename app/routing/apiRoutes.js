@@ -22,8 +22,8 @@ module.exports = function(app) {
     app.post("/api/friends", function(req, res) {
         newScores = req.body.scores;
 
-        var mostCompatibleScore = 50;
         var mostCompatibleFriend = {};
+        var mostCompatibleScore = 50;
 
         for(var i = 0; i < friendData.length; i++) {
             var result = calculateScore(newScores, friendData[i].scores);
@@ -32,9 +32,8 @@ module.exports = function(app) {
                 mostCompatibleFriend = friendData[i];
             }
         }
-        console.log(mostCompatibleScore);
-        console.log(mostCompatibleFriend);
         friendData.push(req.body);
+        res.json(mostCompatibleFriend);
 
     });
 };
