@@ -35,17 +35,6 @@ module.exports = function(app) {
         console.log(mostCompatibleScore);
         console.log(mostCompatibleFriend);
         friendData.push(req.body);
-        // var leastDifference = 0;
-        // var compScore = 0;
-        // var compScoreArr = [];
-        // for(var i = 0; i < newScores.length; i++) {
-    
-        //     for(var j = 0; j < friendData.length; j++) {
-        //         compScoreArr.push(Math.abs(newScores[j] + friendData.scores[j]));
-        //     }
-            
-        // }
-
 
     });
 };
