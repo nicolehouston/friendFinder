@@ -1,5 +1,6 @@
 var friendData = require("../data/friends.js");
 
+// Function that calculates the compatibility score between the user and the potential friends
 function calculateScore(arr1, arr2) {
     var score = 0;
     var scoreArray = [];
@@ -9,7 +10,6 @@ function calculateScore(arr1, arr2) {
     for(var j= 0; j < scoreArray.length; j++) {
         score += scoreArray[j];
     };
-    console.log(score);
     return score;
 };
 
@@ -22,12 +22,12 @@ module.exports = function(app) {
     app.post("/api/friends", function(req, res) {
         newScores = req.body.scores;
 
-        var mostCompatibleFriend = {};
+        var mostCompatibleFriend;
         var mostCompatibleScore = 50;
 
         for(var i = 0; i < friendData.length; i++) {
             var result = calculateScore(newScores, friendData[i].scores);
-            if(result < mostCompatibleScore) {
+            if(result <= mostCompatibleScore) {
                 mostCompatibleScore = result;
                 mostCompatibleFriend = friendData[i];
             }

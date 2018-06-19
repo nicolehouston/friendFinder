@@ -123,30 +123,30 @@
               <option>5</option>
             </select>
         </div>
-        <button type="button" class="btn btn-primary" id="submit" data-toggle="modal" data-target="friendModal">Submit</button>
-    </form>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#friendModal" id="submit">
+          Submit
+        </button>
+      </form>
 
-    <!-- Modal -->
-    <div class="modal fade" id="friendModal" tabindex="-1" role="dialog" aria-labelledby="friend" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="friend">Your Most Compatible Friend</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div id="friendName"></div>
-            <img id="friendPic">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            
-          </div>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="friendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Most Compatible Friend</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
+  </div>
+</div>
 
 
 <script type="text/javascript">
@@ -171,8 +171,10 @@
 
 
     $.post("/api/friends", newFriend, function(data){
-      $("#friendName").html(data.name);
-      $("#friendPic").attr("src", data.picture);
+      $(".modal-body").html("<p>" + data.name + "</p>");
+      var imgHolder = $("<img>");
+      imgHolder.attr("src", data.picture);
+      $(".modal-body").append(imgHolder);
     })
   });
 
